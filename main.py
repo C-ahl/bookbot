@@ -1,3 +1,5 @@
+"""BookBot: A simple book analysis tool that counts words and characters in a text file."""
+
 import sys
 
 from stats import count_words, count_characters, sort_dictionary
@@ -11,7 +13,7 @@ else:
 
 def get_book_text(filepath: str) -> str:
     """Read the content of a book file and return it as a string."""
-    with open(filepath) as f:
+    with open(filepath, "r", encoding="UTF-8") as f:
         file_content = f.read()
         return file_content
 
@@ -22,6 +24,7 @@ def main() -> None:
     word_count = count_words(book_text)
     letter_count = count_characters(book_text)
     letter_count_sorted = sort_dictionary(letter_count)
+
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}")
     print("----------- Word Count ----------")
